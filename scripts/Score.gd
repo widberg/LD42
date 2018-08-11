@@ -21,5 +21,6 @@ func _ready():
 	
 func _on_Timer_timeout():
 	timer.stop()
+	Debris.timer.stop()
 	get_tree().change_scene("res://scenes/GameOver.tscn")
 	pass

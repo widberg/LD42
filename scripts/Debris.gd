@@ -1,7 +1,8 @@
 extends Node
 
 var spawn_time = 1.0
-var tire
+var objectNames = ["Tire", "Trash", "Mug"]
+var objects = []
 var should_spawn
 var timer
 var new_transform
@@ -9,7 +10,8 @@ var debris
 var rot_speed
 
 func _ready():
-	tire = load("res://scenes/object/Tire.tscn")
+	for objectName in objectNames:
+		objects.append(load("res://scenes/object/" + objectName + ".tscn"))
 	timer = Timer.new()
 	add_child(timer)
 	
@@ -22,7 +24,7 @@ func _ready():
 
 func _physics_process(delta):
 	if should_spawn:
-		debris = tire.instance()
+		debris = objects[rand_range(0, objects.size())].instance()
 		new_transform = debris.get_transform()
 		new_transform.origin = Vector2(rand_range(64, 1856), rand_range(64, 1016))
 		debris.set_transform(new_transform)

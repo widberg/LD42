@@ -129,7 +129,9 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Player" type="RigidBody2D" parent="." index="2" groups=[
+[node name="Debris" type="Node" parent="." index="2"]
+
+[node name="Player" type="RigidBody2D" parent="." index="3" groups=[
 "player",
 ]]
 
@@ -182,7 +184,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="Crate" type="RigidBody2D" parent="." index="3" groups=[
+[node name="Crate" type="RigidBody2D" parent="." index="4" groups=[
 "crate",
 ]]
 
@@ -233,7 +235,9 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="ScoreText" type="Label" parent="." index="4"]
+[node name="UI" type="Node" parent="." index="5"]
+
+[node name="ScoreText" type="Label" parent="UI" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -258,7 +262,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="ScoreNumber" type="Label" parent="ScoreText" index="0"]
+[node name="ScoreNumber" type="Label" parent="UI/ScoreText" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -282,7 +286,7 @@ max_lines_visible = -1
 script = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="TimerText" type="Label" parent="." index="5"]
+[node name="TimerText" type="Label" parent="UI" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -308,7 +312,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
-[node name="TimerTime" type="Label" parent="TimerText" index="0"]
+[node name="TimerTime" type="Label" parent="UI/TimerText" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -325,14 +329,12 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 7 )
-text = "060.00"
+text = "30.00"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 9 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Debris" type="Node" parent="." index="6"]
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_Portal_body_entered"]
 

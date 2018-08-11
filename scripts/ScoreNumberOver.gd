@@ -6,5 +6,4 @@ func _ready():
 	Score.add_time = 30
 	
 	Score.timer.set_wait_time(Score.initial_time)
-	Debris.timer.stop()
 	pass
