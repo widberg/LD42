@@ -57,7 +57,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="Panel"]
+[node name="Background" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -331,6 +331,8 @@ lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 9 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Debris" type="Node" parent="." index="6"]
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_Portal_body_entered"]
 

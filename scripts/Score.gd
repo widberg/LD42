@@ -20,5 +20,6 @@ func _ready():
 	pass
 	
 func _on_Timer_timeout():
+	timer.stop()
 	get_tree().change_scene("res://scenes/GameOver.tscn")
 	pass

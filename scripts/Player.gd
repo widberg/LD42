@@ -12,6 +12,7 @@ func _physics_process(delta):
 		apply_impulse(Vector2(), forward * movespeed * delta)
 		if Score.timer.is_stopped():
 			Score.timer.start()
+			Debris.timer.start()
 	if Input.is_action_pressed("turn_right"):
 		apply_impulse(Vector2(0, -32), Vector2(turnspeed * delta, 0));
 		apply_impulse(Vector2(0, 32), Vector2(-turnspeed * delta, 0));
