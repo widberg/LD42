@@ -1,45 +1,63 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://scenes/Portal.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Portal.gd" type="Script" id=1]
+[ext_resource path="res://assets/texture/Portal.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=3]
-[ext_resource path="res://assets/texture/player.png" type="Texture" id=4]
-[ext_resource path="res://scenes/Crate.gd" type="Script" id=5]
-[ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=6]
-[ext_resource path="res://scenes/ScoreNumber.gd" type="Script" id=7]
+[ext_resource path="res://assets/texture/Ship.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Crate.gd" type="Script" id=5]
+[ext_resource path="res://assets/texture/Crate.png" type="Texture" id=6]
+[ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=7]
+[ext_resource path="res://scripts/ScoreNumber.gd" type="Script" id=8]
+[ext_resource path="res://scripts/TimerTime.gd" type="Script" id=9]
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 64.0
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 31.5, 0, 64, 64, 0, 64 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 
 size = 75
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 6 )
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 
 size = 75
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 6 )
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="Panel" index="0"]
+[sub_resource type="DynamicFont" id=6]
+
+size = 75
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 75
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Background" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -87,7 +105,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="PortalShape" type="CollisionShape2D" parent="Portal" index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="PortalTexture" type="TextureRect" parent="Portal" index="1"]
@@ -140,7 +158,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="Shape" type="CollisionShape2D" parent="Player" index="0"]
 
 position = Vector2( -32, -32 )
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Texture" type="TextureRect" parent="Player" index="1"]
@@ -191,7 +209,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CrateShape" type="CollisionShape2D" parent="Crate" index="0"]
 
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CrateTexture" type="TextureRect" parent="Crate" index="1"]
@@ -210,7 +228,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
@@ -229,7 +247,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
 custom_colors/font_color_shadow = Color( 0.819608, 0.278431, 0.192157, 1 )
 custom_constants/shadow_offset_x = 4
@@ -238,7 +256,7 @@ text = "Score:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
 [node name="ScoreNumber" type="Label" parent="ScoreText" index="0"]
 
@@ -256,13 +274,63 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "000000"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 7 )
-_sections_unfolded = [ "custom_fonts" ]
+script = ExtResource( 8 )
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="TimerText" type="Label" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1450.0
+margin_right = 1655.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
+custom_colors/font_color_shadow = Color( 0.819608, 0.278431, 0.192157, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 3
+text = "Time:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="TimerTime" type="Label" parent="TimerText" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 210.0
+margin_top = 7.0
+margin_right = 443.0
+margin_bottom = 92.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+text = "060.00"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 9 )
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_Portal_body_entered"]
 
