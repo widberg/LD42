@@ -1,16 +1,14 @@
 extends Node
 
-var score
+var score = 0
 var timer
 var initial_time = 30.0
 var min_time = 10.0
 var max_time = 60.0
-var add_time
+var add_time = 30
+var high_score = 0
 
 func _ready():
-	score = 0
-	add_time = 30
-	
 	timer = Timer.new()
 	add_child(timer)
 	
@@ -22,5 +20,7 @@ func _ready():
 func _on_Timer_timeout():
 	timer.stop()
 	Debris.timer.stop()
+	if score > high_score:
+		high_score = score 
 	get_tree().change_scene("res://scenes/GameOver.tscn")
 	pass

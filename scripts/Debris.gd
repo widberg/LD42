@@ -27,11 +27,13 @@ func _physics_process(delta):
 		new_transform = debris.get_transform()
 		new_transform.origin = Vector2(rand_range(64, 1856), rand_range(64, 1016))
 		debris.set_transform(new_transform)
+		debris.set_angular_velocity(rand_range(-15, 15))
 		debris.apply_impulse(Vector2(), Vector2(rand_range(-250, 250), rand_range(-250, 250)))
 		get_node("/root/Background/Debris").add_child(debris)
 		should_spawn = false
 	pass
 	
 func _on_Timer_timeout():
+	Score.score += 10
 	should_spawn = true
 	pass

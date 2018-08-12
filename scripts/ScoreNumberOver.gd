@@ -5,5 +5,5 @@ func _ready():
 	Score.score = 0
 	Score.add_time = 30
 	
-	Score.timer.set_wait_time(Score.initial_time)
+	Score.timer.set_wait_time(Score.high_score)
 	pass

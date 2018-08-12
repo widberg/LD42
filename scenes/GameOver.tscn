@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/ScoreNumberOver.gd" type="Script" id=2]
-[ext_resource path="res://scripts/Play.gd" type="Script" id=3]
-[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://scripts/HighScoreNumberOver.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Play.gd" type="Script" id=4]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -45,7 +46,7 @@ use_filter = true
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="Panel" index="0"]
+[node name="Background" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -62,7 +63,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Game Over" type="Label" parent="." index="0"]
+[node name="GameOver" type="Label" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -95,10 +96,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 461.0
-margin_top = 311.0
-margin_right = 950.0
-margin_bottom = 480.0
+margin_left = 455.0
+margin_top = 250.0
+margin_right = 944.0
+margin_bottom = 419.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -114,7 +115,7 @@ text = "Score:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
 
 [node name="ScoreNumber" type="Label" parent="ScoreText" index="0"]
 
@@ -138,9 +139,60 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 2 )
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Play Again" type="Button" parent="." index="2"]
+[node name="HighScoreText" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 243.0
+margin_top = 400.0
+margin_right = 1155.0
+margin_bottom = 569.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
+custom_colors/font_color_shadow = Color( 0.819608, 0.278431, 0.192157, 1 )
+custom_constants/shadow_offset_x = 7
+custom_constants/shadow_offset_y = 4
+text = "High Score:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="HighScoreNumber" type="Label" parent="HighScoreText" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 14.0
+margin_right = 1442.0
+margin_bottom = 183.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "000000"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Play Again" type="Button" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -168,10 +220,10 @@ group = null
 text = "Play Again"
 flat = false
 align = 1
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="MainMenu" type="Button" parent="." index="3"]
+[node name="MainMenu" type="Button" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -199,7 +251,7 @@ group = null
 text = "Main Menu"
 flat = false
 align = 1
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 

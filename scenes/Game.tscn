@@ -129,9 +129,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Debris" type="Node" parent="." index="2"]
-
-[node name="Player" type="RigidBody2D" parent="." index="3" groups=[
+[node name="Player" type="RigidBody2D" parent="." index="2" groups=[
 "player",
 ]]
 
@@ -184,7 +182,7 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="Crate" type="RigidBody2D" parent="." index="4" groups=[
+[node name="Crate" type="RigidBody2D" parent="." index="3" groups=[
 "crate",
 ]]
 
@@ -234,6 +232,8 @@ texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
+
+[node name="Debris" type="Node" parent="." index="4"]
 
 [node name="UI" type="Node" parent="." index="5"]
 
@@ -292,8 +292,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1450.0
-margin_right = 1655.0
+margin_left = 1500.0
+margin_right = 1705.0
 margin_bottom = 85.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
