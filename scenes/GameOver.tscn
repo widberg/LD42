@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/ScoreNumberOver.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Play.gd" type="Script" id=3]
-[ext_resource path="res://scripts/Quit.gd" type="Script" id=4]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -171,16 +171,16 @@ align = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Quit" type="Button" parent="." index="3"]
+[node name="MainMenu" type="Button" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 782.0
-margin_top = 837.0
-margin_right = 1139.0
-margin_bottom = 1012.0
+margin_left = 512.0
+margin_top = 850.0
+margin_right = 1407.0
+margin_bottom = 1025.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -196,7 +196,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Quit"
+text = "Main Menu"
 flat = false
 align = 1
 script = ExtResource( 4 )

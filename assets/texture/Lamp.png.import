@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Icon.png-33e63688031d53466d4d656c73cf10ca.stex"
+path="res://.import/Lamp.png-98aba7d6ea0ad95e6c874c19aa397a54.stex"
 
 [deps]
 
-source_file="res://Icon.png"
-dest_files=[ "res://.import/Icon.png-33e63688031d53466d4d656c73cf10ca.stex" ]
+source_file="res://assets/texture/Lamp.png"
+dest_files=[ "res://.import/Lamp.png-98aba7d6ea0ad95e6c874c19aa397a54.stex" ]
 
 [params]
 

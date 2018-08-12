@@ -28,7 +28,7 @@ use_filter = true
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="Panel"]
+[node name="Background" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -77,9 +77,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 724.0
-margin_top = 342.0
+margin_top = 500.0
 margin_right = 1196.0
-margin_bottom = 572.0
+margin_bottom = 730.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -108,9 +108,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 724.0
-margin_top = 674.0
+margin_top = 800.0
 margin_right = 1196.0
-margin_bottom = 904.0
+margin_bottom = 1030.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
