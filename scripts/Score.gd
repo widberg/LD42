@@ -7,6 +7,8 @@ var min_time = 10.0
 var max_time = 60.0
 var add_time = 30
 var high_score = 0
+var enable_tutorial = false
+var first_game = true
 
 func _ready():
 	timer = Timer.new()
@@ -23,4 +25,8 @@ func _on_Timer_timeout():
 	if score > high_score:
 		high_score = score 
 	get_tree().change_scene("res://scenes/GameOver.tscn")
+	Score.add_time = 30
+	Score.timer.set_wait_time(Score.initial_time)
+	Debris.timer.set_wait_time(Debris.spawn_time)
+	first_game = false
 	pass
