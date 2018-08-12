@@ -1,17 +1,41 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
-[ext_resource path="res://scripts/Portal.gd" type="Script" id=2]
-[ext_resource path="res://assets/texture/Portal.png" type="Texture" id=3]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=4]
-[ext_resource path="res://assets/texture/Ship.png" type="Texture" id=5]
-[ext_resource path="res://scripts/Crate.gd" type="Script" id=6]
-[ext_resource path="res://assets/texture/Crate.png" type="Texture" id=7]
-[ext_resource path="res://scripts/CircleDraw.gd" type="Script" id=8]
-[ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/Portal.gd" type="Script" id=3]
+[ext_resource path="res://assets/texture/Portal.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=5]
+[ext_resource path="res://assets/texture/Ship.png" type="Texture" id=6]
+[ext_resource path="res://scripts/Crate.gd" type="Script" id=7]
+[ext_resource path="res://assets/texture/Crate.png" type="Texture" id=8]
+[ext_resource path="res://scripts/CircleDraw.gd" type="Script" id=9]
 [ext_resource path="res://scripts/ScoreNumber.gd" type="Script" id=10]
 [ext_resource path="res://scripts/TimerTime.gd" type="Script" id=11]
 [ext_resource path="res://scripts/Pause.gd" type="Script" id=12]
+
+[sub_resource type="DynamicFont" id=10]
+
+size = 65
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=11]
+
+size = 65
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=13]
+
+size = 55
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -33,7 +57,7 @@ extents = Vector2( 32, 32 )
 size = 75
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 9 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -41,7 +65,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 size = 75
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 9 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=6]
@@ -49,7 +73,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 75
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 9 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=7]
@@ -57,23 +81,31 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 75
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 9 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=8]
 
 size = 200
 use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 9 )
+use_filter = true
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=9]
 
 size = 150
 use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 9 )
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=12]
+
+size = 100
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Background" type="Panel" index="0"]
@@ -109,10 +141,177 @@ visible = false
 build_mode = 1
 polygon = PoolVector2Array( 0, 0, 1920, 0, 1920, 1080, 0, 1080 )
 
-[node name="Tutorial" type="Node" parent="." index="1"]
+[node name="Tutorial" type="Node2D" parent="." index="1"]
 
+pause_mode = 2
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
+
+[node name="KeyNames" type="RichTextLabel" parent="Tutorial" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 100.0
+margin_right = 958.0
+margin_bottom = 433.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "W/Up
+A/Left
+D/Right
+Esc"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "W/Up
+A/Left
+D/Right
+Esc"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Pause", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="KeyFunctions" type="RichTextLabel" parent="Tutorial/KeyNames" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 275.0
+margin_right = 783.0
+margin_bottom = 302.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = ": Move forward
+: Turn left
+: Turn right
+: Pause"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ": Move forward
+: Turn left
+: Turn right
+: Pause"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Pause", "Rect", "custom_fonts" ]
+
+[node name="Instructions" type="RichTextLabel" parent="Tutorial" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1050.0
+margin_top = 100.0
+margin_right = 1914.0
+margin_bottom = 400.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "Push the crate into the
+portal to gain points and
+add time to the timer.
+Don't let time run out!"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Push the crate into the
+portal to gain points and
+add time to the timer.
+Don't let time run out!"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Pause", "Rect", "custom_fonts" ]
+
+[node name="WASD" type="TextureRect" parent="Tutorial" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 158.0
+margin_top = 580.0
+margin_right = 580.0
+margin_bottom = 857.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+
+[node name="ArrowKeys" type="TextureRect" parent="Tutorial" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1226.0
+margin_top = 597.0
+margin_right = 1648.0
+margin_bottom = 874.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+
+[node name="ToggleNotice" type="Label" parent="Tutorial" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 31.0
+margin_top = 1000.0
+margin_right = 1889.0
+margin_bottom = 1062.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 13 )
+text = "The tutorial text can be enabled/disabled from the pause menu."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="Portal" type="Area2D" parent="." index="2"]
 
@@ -124,7 +323,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="PortalShape" type="CollisionShape2D" parent="Portal" index="0"]
@@ -148,7 +347,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
@@ -176,7 +375,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Shape" type="CollisionShape2D" parent="Player" index="0"]
@@ -201,14 +400,12 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="Debris" type="Node" parent="." index="4"]
-
-[node name="Crate" type="RigidBody2D" parent="." index="5" groups=[
+[node name="Crate" type="RigidBody2D" parent="." index="4" groups=[
 "crate",
 ]]
 
@@ -230,7 +427,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pickable", "Transform", "Visibility", "Z Index" ]
 
 [node name="CrateShape" type="CollisionShape2D" parent="Crate" index="0"]
@@ -254,7 +451,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
@@ -262,8 +459,10 @@ _sections_unfolded = [ "Rect" ]
 [node name="CircleDraw" type="Node2D" parent="Crate" index="2"]
 
 z_index = 1
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Debris" type="Node" parent="." index="5"]
 
 [node name="UI" type="Node2D" parent="." index="6"]
 
@@ -372,6 +571,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 [node name="Pause" type="Node2D" parent="." index="7"]
 
 pause_mode = 2
+visible = false
 z_index = 3
 script = ExtResource( 12 )
 _sections_unfolded = [ "Pause", "Z Index" ]
@@ -391,7 +591,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Material", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Material", "Pause", "Rect", "Theme", "Visibility" ]
 
 [node name="PauseText" type="Label" parent="Pause" index="1"]
 
@@ -418,7 +618,7 @@ text = "Paused"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_constants", "custom_fonts" ]
+_sections_unfolded = [ "Pause", "Rect", "Visibility", "custom_colors", "custom_constants", "custom_fonts" ]
 
 [node name="Resume" type="Button" parent="Pause" index="2"]
 
@@ -448,7 +648,7 @@ group = null
 text = "Resume"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Pause", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="MainMenu" type="Button" parent="Pause" index="3"]
 
@@ -478,12 +678,43 @@ group = null
 text = "Main Menu"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Pause", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Tutorial" type="CheckBox" parent="Pause" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1450.0
+margin_top = 700.0
+margin_right = 1897.0
+margin_bottom = 821.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 12 )
+disabled = true
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Tutorial"
+flat = false
+align = 0
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_Portal_body_entered"]
 
 [connection signal="pressed" from="Pause/Resume" to="Pause" method="_on_Resume_pressed"]
 
 [connection signal="pressed" from="Pause/MainMenu" to="Pause" method="_on_MainMenu_pressed"]
+
+[connection signal="toggled" from="Pause/Tutorial" to="Pause" method="_on_Tutorial_toggled"]
 
 

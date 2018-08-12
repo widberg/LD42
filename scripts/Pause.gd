@@ -1,30 +1,10 @@
 extends Node
 
-var panel
-var text
-var resume
-var main
-
-func hide_all():
-	panel.hide()
-	text.hide()
-	resume.hide()
-	main.hide()
-	pass
-	
-func show_all():
-	panel.show()
-	text.show()
-	resume.show()
-	main.show()
-	pass
-	
 func _ready():
-	panel = get_node("/root/Background/Pause/PausePanel")
-	text = get_node("/root/Background/Pause/PauseText")
-	resume = get_node("/root/Background/Pause/Resume")
-	main = get_node("/root/Background/Pause/MainMenu")
-	hide_all()
+	hide()
+	var tutorial = get_node("/root/Background/Pause/Tutorial")
+	tutorial.pressed = Score.enable_tutorial || Score.first_game
+	tutorial.disabled = Score.first_game
 	pass
 
 func _process(delta):
@@ -35,14 +15,14 @@ func _process(delta):
 func toggle_pause():
 	get_tree().paused = !get_tree().paused
 	if get_tree().paused:
-		show_all()
+		show()
 	else:
-		hide_all()
+		hide()
 	pass
 
 func _on_Resume_pressed():
 	get_tree().paused = false
-	hide_all()
+	hide()
 	pass
 
 
@@ -55,4 +35,9 @@ func _on_MainMenu_pressed():
 	Debris.timer.set_wait_time(Debris.spawn_time)
 	get_tree().paused = false
 	get_tree().change_scene("res://scenes/Main.tscn")
+	pass
+
+
+func _on_Tutorial_toggled(button_pressed):
+	Score.enable_tutorial = button_pressed
 	pass

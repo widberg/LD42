@@ -1,6 +1,8 @@
 extends Node
 
-func _ready():
+func _process(delta):
 	if Score.enable_tutorial || Score.first_game:
-		print("Tutorial")
+		show()
+	else:
+		hide()
 	pass

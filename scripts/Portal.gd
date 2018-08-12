@@ -1,5 +1,9 @@
 extends Area2D
 
+func _process(delta):
+	set_rotation(get_rotation() - PI/7 * delta)
+	pass
+
 func _on_Portal_body_entered(body):
 	if body.is_in_group("crate"):
 		Score.score += 1000

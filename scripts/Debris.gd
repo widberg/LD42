@@ -1,7 +1,7 @@
 extends Node
 
 var spawn_time = 1.0
-var objectNames = ["Tire", "Trash", "Mug", "Pot", "Brick"]
+var objectNames = ["Tire", "Mug", "Brick", "Milk"]
 var objects = []
 var should_spawn
 var timer
