@@ -103,7 +103,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="Panel"]
+[node name="Background" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -139,6 +139,7 @@ polygon = PoolVector2Array( 0, 0, 1920, 0, 1920, 1080, 0, 1080 )
 [node name="Tutorial" type="Node2D" parent="." index="1"]
 
 pause_mode = 2
+visible = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
