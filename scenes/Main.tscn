@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Play.gd" type="Script" id=2]
-[ext_resource path="res://scripts/Quit.gd" type="Script" id=3]
+[ext_resource path="res://scripts/CheckBox.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -22,9 +22,9 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
 
-size = 200
+size = 150
 use_mipmaps = false
-use_filter = true
+use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
@@ -34,7 +34,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1920.0
+margin_left = -2.0
+margin_right = 1918.0
 margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -103,16 +104,16 @@ align = 1
 script = ExtResource( 2 )
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Quit" type="Button" parent="." index="2"]
+[node name="CheckBox" type="CheckBox" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 724.0
+margin_left = 537.0
 margin_top = 800.0
-margin_right = 1196.0
-margin_bottom = 1030.0
+margin_right = 1383.0
+margin_bottom = 977.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -121,17 +122,16 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
-custom_colors/font_color_hover = Color( 0.819608, 0.278431, 0.192157, 1 )
-custom_colors/font_color_pressed = Color( 0.823529, 0.215686, 0.137255, 1 )
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Quit"
+text = "Fullscreen"
 flat = false
-align = 1
+align = 0
 script = ExtResource( 3 )
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[connection signal="toggled" from="CheckBox" to="CheckBox" method="_on_CheckBox_toggled"]
 
 

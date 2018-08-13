@@ -1,3 +1,4 @@
 #exports
-exports
-exports.zip
+exports/*
+!exports/buildnumber.txt
+!exports/push.bat
