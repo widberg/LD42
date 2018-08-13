@@ -1,7 +1,7 @@
 extends Node
 
 var spawn_time = 1.0
-var objectNames = ["Tire", "Mug", "Brick", "Milk"]
+var objectNames = ["Tire", "Mug", "Brick", "Milk", "Box", "Tea", "Chair", "Book", "Ball", "Clock"]
 var objects = []
 var should_spawn
 var timer
@@ -33,7 +33,7 @@ func _physics_process(delta):
 		get_node("/root/Background/Debris").add_child(debris)
 		should_spawn = false
 	pass
-	
+
 func _on_Timer_timeout():
 	Score.score += 10
 	should_spawn = true
