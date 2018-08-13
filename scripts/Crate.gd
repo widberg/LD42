@@ -8,6 +8,7 @@ var should_radar
 var circle_draw
 var shape
 var texture
+var sound
 var timer
 var col_bodies = []
 var inactive_time = 5.0
@@ -20,6 +21,7 @@ func _ready():
 	shape = get_child(0)
 	texture = get_child(1)
 	circle_draw = get_child(2)
+	sound = get_child(3)
 	timer = Timer.new()
 	add_child(timer)
 	
@@ -30,7 +32,7 @@ func _ready():
 	set_angular_velocity(rand_range(-15, 15))
 	new_transform = get_transform()
 	while !pos_valid:
-		new_position = Vector2(rand_range(64, 1856), rand_range(64, 1016))
+		new_position = Vector2(rand_range(64, 1856), rand_range(220, 1016))
 		if new_position.distance_to(center) >= 128:
 			pos_valid = true
 	new_transform.origin = new_position
@@ -45,6 +47,7 @@ func _process(delta):
 		if texture.get_scale().x <= 0:
 			get_parent().remove_child(self)
 		elif texture.get_scale().x == 1:
+			sound.play()
 			shape.disabled = true
 			remove_child(circle_draw)
 		texture.set_scale(Vector2(texture.get_scale().x - 0.25 * delta, texture.get_scale().y - 0.25 * delta))
@@ -57,7 +60,6 @@ func _process(delta):
 			should_radar = false
 			circle_draw.hide()
 		else:
-			circle_draw.show()
 			circle_draw.update()
 	pass
 
@@ -68,7 +70,8 @@ func _physics_process(delta):
 			if body.is_in_group("player"):
 				timer.set_wait_time(inactive_time)
 				timer.start()
-	
+
 func _on_Timer_timeout():
 	should_radar = true
+	circle_draw.show()
 	pass

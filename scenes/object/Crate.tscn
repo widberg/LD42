@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Crate.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/Crate.png" type="Texture" id=2]
 [ext_resource path="res://scripts/CircleDraw.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/crate.ogg" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -65,5 +66,15 @@ _sections_unfolded = [ "Rect" ]
 z_index = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Sound" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 4 )
+volume_db = -2.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
 
 

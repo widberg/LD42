@@ -12,6 +12,7 @@ var first_game = true
 var user_tutorial = false
 
 func _ready():
+	OS.set_window_maximized(true)
 	timer = Timer.new()
 	add_child(timer)
 	

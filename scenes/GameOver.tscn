@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/ScoreNumberOver.gd" type="Script" id=2]
 [ext_resource path="res://scripts/HighScoreNumberOver.gd" type="Script" id=3]
 [ext_resource path="res://scripts/Play.gd" type="Script" id=4]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=5]
+[ext_resource path="res://assets/audio/end.ogg" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -46,7 +47,7 @@ use_filter = true
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="Panel"]
+[node name="Background" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -253,5 +254,14 @@ flat = false
 align = 1
 script = ExtResource( 5 )
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="End" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 6 )
+volume_db = -15.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 
