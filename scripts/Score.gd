@@ -7,8 +7,9 @@ var min_time = 10.0
 var max_time = 60.0
 var add_time = 30
 var high_score = 0
-var enable_tutorial = false
+var enable_tutorial = true
 var first_game = true
+var user_tutorial = false
 
 func _ready():
 	timer = Timer.new()
@@ -18,7 +19,7 @@ func _ready():
 	timer.set_wait_time(initial_time)
 	timer.set_one_shot(true)
 	pass
-	
+
 func _on_Timer_timeout():
 	timer.stop()
 	Debris.timer.stop()
@@ -28,5 +29,7 @@ func _on_Timer_timeout():
 	Score.add_time = 30
 	Score.timer.set_wait_time(Score.initial_time)
 	Debris.timer.set_wait_time(Debris.spawn_time)
+	if !user_tutorial && first_game:
+		enable_tutorial = false
 	first_game = false
 	pass

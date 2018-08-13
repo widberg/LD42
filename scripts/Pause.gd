@@ -1,10 +1,9 @@
-extends Node
+extends Node2D
 
 func _ready():
 	hide()
 	var tutorial = get_node("/root/Background/Pause/Tutorial")
-	tutorial.pressed = Score.enable_tutorial || Score.first_game
-	tutorial.disabled = Score.first_game
+	tutorial.pressed = Score.enable_tutorial
 	pass
 
 func _process(delta):
@@ -40,4 +39,5 @@ func _on_MainMenu_pressed():
 
 func _on_Tutorial_toggled(button_pressed):
 	Score.enable_tutorial = button_pressed
+	Score.user_tutorial = true
 	pass

@@ -3,7 +3,7 @@ extends RigidBody2D
 var rot
 var forward
 var move_speed = 2000
-var turn_speed = 200
+var turn_speed = 150
 
 func _physics_process(delta):
 	rot = get_transform().get_rotation() - PI/2.0

@@ -1,7 +1,11 @@
 extends Node2D
 
-var initial_radius = 200
-var radius = initial_radius
+var initial_radius
+var radius
+
+func _ready():
+	initial_radius = 200
+	radius = initial_radius
 
 func draw_empty_circle(circle_center, circle_radius, color, resolution):
 	var draw_counter = 1
@@ -15,7 +19,7 @@ func draw_empty_circle(circle_center, circle_radius, color, resolution):
 		draw_counter += 1 / resolution
 		line_origin = line_end
 
-	line_end = circle_radius.rotated(deg2rad(360)) + circle_center
+	line_end = circle_radius.rotated(2 * PI) + circle_center
 	draw_line(line_origin, line_end, color)
 	pass
 

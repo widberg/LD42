@@ -23,6 +23,7 @@ func _ready():
 
 func _physics_process(delta):
 	if should_spawn:
+		randomize()
 		debris = objects[rand_range(0, objects.size())].instance()
 		new_transform = debris.get_transform()
 		new_transform.origin = Vector2(rand_range(64, 1856), rand_range(64, 1016))

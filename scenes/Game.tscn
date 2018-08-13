@@ -1,19 +1,17 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/Portal.gd" type="Script" id=3]
 [ext_resource path="res://assets/texture/Portal.png" type="Texture" id=4]
-[ext_resource path="res://scripts/Player.gd" type="Script" id=5]
-[ext_resource path="res://assets/texture/Ship.png" type="Texture" id=6]
-[ext_resource path="res://scripts/Crate.gd" type="Script" id=7]
-[ext_resource path="res://assets/texture/Crate.png" type="Texture" id=8]
-[ext_resource path="res://scripts/CircleDraw.gd" type="Script" id=9]
-[ext_resource path="res://scripts/ScoreNumber.gd" type="Script" id=10]
-[ext_resource path="res://scripts/TimerTime.gd" type="Script" id=11]
-[ext_resource path="res://scripts/Pause.gd" type="Script" id=12]
+[ext_resource path="res://scripts/Crates.gd" type="Script" id=5]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=6]
+[ext_resource path="res://assets/texture/Ship.png" type="Texture" id=7]
+[ext_resource path="res://scripts/ScoreNumber.gd" type="Script" id=8]
+[ext_resource path="res://scripts/TimerTime.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Pause.gd" type="Script" id=10]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=1]
 
 size = 65
 use_mipmaps = false
@@ -21,7 +19,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=2]
 
 size = 65
 use_mipmaps = false
@@ -29,7 +27,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=3]
 
 size = 55
 use_mipmaps = false
@@ -37,22 +35,17 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 64.0
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = PoolVector2Array( 32, 0, 64, 64, 0, 64 )
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
-
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 
 size = 75
 use_mipmaps = false
@@ -60,33 +53,9 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFont" id=5]
-
-size = 75
-use_mipmaps = false
-use_filter = true
-font_data = ExtResource( 2 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[sub_resource type="DynamicFont" id=6]
-
-size = 75
-use_mipmaps = false
-use_filter = true
-font_data = ExtResource( 2 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
-
-[sub_resource type="DynamicFont" id=7]
-
-size = 75
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 2 )
-_sections_unfolded = [ "Font", "Settings" ]
-
 [sub_resource type="DynamicFont" id=8]
 
-size = 200
+size = 75
 use_mipmaps = false
 use_filter = true
 font_data = ExtResource( 2 )
@@ -94,13 +63,37 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=9]
 
-size = 150
+size = 75
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=10]
+
+size = 75
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=11]
+
+size = 200
 use_mipmaps = false
 use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=12]
+
+size = 150
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=13]
 
 size = 100
 use_mipmaps = false
@@ -163,7 +156,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "W/Up
 A/Left
@@ -198,7 +191,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = ": Move forward
 : Turn left
@@ -234,7 +227,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/normal_font = SubResource( 11 )
+custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "Push the crate into the
 portal to gain points and
@@ -306,7 +299,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 3 )
 text = "The tutorial text can be enabled/disabled from the pause menu."
 percent_visible = 1.0
 lines_skipped = 0
@@ -328,7 +321,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="PortalShape" type="CollisionShape2D" parent="Portal" index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="PortalTexture" type="TextureRect" parent="Portal" index="1"]
@@ -352,7 +345,11 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Player" type="RigidBody2D" parent="." index="3" groups=[
+[node name="Crates" type="Node2D" parent="." index="3"]
+
+script = ExtResource( 5 )
+
+[node name="Player" type="RigidBody2D" parent="." index="4" groups=[
 "player",
 ]]
 
@@ -375,13 +372,13 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Shape" type="CollisionShape2D" parent="Player" index="0"]
 
 position = Vector2( -32, -32 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Texture" type="TextureRect" parent="Player" index="1"]
@@ -400,67 +397,10 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Visibility" ]
-
-[node name="Crate" type="RigidBody2D" parent="." index="4" groups=[
-"crate",
-]]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 8
-contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-script = ExtResource( 7 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Material", "Pickable", "Transform", "Visibility", "Z Index" ]
-
-[node name="CrateShape" type="CollisionShape2D" parent="Crate" index="0"]
-
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CrateTexture" type="TextureRect" parent="Crate" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 0
-_sections_unfolded = [ "Rect" ]
-
-[node name="CircleDraw" type="Node2D" parent="Crate" index="2"]
-
-z_index = 1
-script = ExtResource( 9 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Debris" type="Node" parent="." index="5"]
 
@@ -483,7 +423,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
 custom_colors/font_color_shadow = Color( 0.819608, 0.278431, 0.192157, 1 )
 custom_constants/shadow_offset_x = 4
@@ -510,12 +450,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 text = "000000"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="TimerText" type="Label" parent="UI" index="1"]
@@ -533,7 +473,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
 custom_colors/font_color_shadow = Color( 0.819608, 0.278431, 0.192157, 1 )
 custom_constants/shadow_offset_x = 4
@@ -560,12 +500,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 10 )
 text = "30.00"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 11 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Pause" type="Node2D" parent="." index="7"]
@@ -573,7 +513,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 pause_mode = 2
 visible = false
 z_index = 3
-script = ExtResource( 12 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Pause", "Z Index" ]
 
 [node name="PausePanel" type="Panel" parent="Pause" index="0"]
@@ -609,7 +549,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
 custom_colors/font_color_shadow = Color( 0.819608, 0.278431, 0.192157, 1 )
 custom_constants/shadow_offset_x = 7
@@ -637,7 +577,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
 custom_colors/font_color_hover = Color( 0.819608, 0.278431, 0.192157, 1 )
 custom_colors/font_color_pressed = Color( 0.823529, 0.215686, 0.137255, 1 )
@@ -667,7 +607,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.823529, 0.407843, 0.207843, 1 )
 custom_colors/font_color_hover = Color( 0.819608, 0.278431, 0.192157, 1 )
 custom_colors/font_color_pressed = Color( 0.823529, 0.215686, 0.137255, 1 )
@@ -697,8 +637,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 12 )
-disabled = true
+custom_fonts/font = SubResource( 13 )
 toggle_mode = true
 pressed = true
 enabled_focus_mode = 2
