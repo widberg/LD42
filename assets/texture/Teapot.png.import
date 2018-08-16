@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.png-861a93a16e4f856394279ba7d138e8ca.stex"
+path="res://.import/Teapot.png-e63cd66e778c679a04a222c3af2c0e74.stex"
 
 [deps]
 
-source_file="res://assets/texture/player.png"
-dest_files=[ "res://.import/player.png-861a93a16e4f856394279ba7d138e8ca.stex" ]
+source_file="res://assets/texture/Teapot.png"
+dest_files=[ "res://.import/Teapot.png-e63cd66e778c679a04a222c3af2c0e74.stex" ]
 
 [params]
 

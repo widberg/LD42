@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/font/Comfortaa-Bold.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/Play.gd" type="Script" id=2]
-[ext_resource path="res://scripts/Fullscreen.gd" type="Script" id=3]
-[ext_resource path="res://scenes/object/Music.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Volume.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Fullscreen.gd" type="Script" id=4]
+[ext_resource path="res://assets/texture/UncheckedBox.png" type="Texture" id=5]
+[ext_resource path="res://scenes/object/Music.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -25,11 +27,19 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 size = 125
 use_mipmaps = false
-use_filter = false
+use_filter = true
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="Panel" index="0"]
+[sub_resource type="DynamicFont" id=4]
+
+size = 100
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Background" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -105,35 +115,111 @@ align = 1
 script = ExtResource( 2 )
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Fullscreen" type="CheckBox" parent="." index="2"]
+[node name="Volume" type="HSlider" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 604.0
-margin_top = 800.0
-margin_right = 1316.0
-margin_bottom = 949.0
+margin_left = 360.0
+margin_top = 875.0
+margin_right = 960.0
+margin_bottom = 891.0
+rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
+size_flags_vertical = 0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+script = ExtResource( 3 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="Fullscreen" type="CheckBox" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 604.0
+margin_top = 900.0
+margin_right = 1320.0
+margin_bottom = 1049.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 3 )
 toggle_mode = true
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 text = "Fullscreen"
 flat = false
 align = 0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Music" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Check" type="TextureRect" parent="Fullscreen" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -40.0
+margin_top = 40.0
+margin_right = 24.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Music" parent="." index="4" instance=ExtResource( 6 )]
+
+[node name="Label" type="Label" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 762.0
+margin_top = 750.0
+margin_right = 1158.0
+margin_bottom = 863.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Volume"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[connection signal="value_changed" from="Volume" to="Volume" method="_on_Volume_value_changed"]
 
 [connection signal="toggled" from="Fullscreen" to="Fullscreen" method="_on_Fullscreen_toggled"]
 

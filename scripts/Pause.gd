@@ -1,14 +1,26 @@
 extends Node2D
 
+var checkedt
+var uncheckedt
+var tex
+var tutorial
+
 func _ready():
 	hide()
-	var tutorial = get_node("/root/Background/Pause/Tutorial")
+	tutorial = get_node("/root/Background/Pause/Tutorial")
 	tutorial.pressed = Score.enable_tutorial
+	checkedt = load("res://assets/texture/CheckedBox.png")
+	uncheckedt = load("res://assets/texture/UncheckedBox.png")
+	tex = get_child(4).get_child(0)
 	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()
+	if tutorial.pressed:
+		tex.set_texture(checkedt)
+	else:
+		tex.set_texture(uncheckedt)
 	pass
 
 func toggle_pause():

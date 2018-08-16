@@ -1,18 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/texture/Mug.png" type="Texture" id=1]
+[ext_resource path="res://assets/texture/Fan.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 24, 31 )
+radius = 20.0
+height = 5.0
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7, 10 )
+extents = Vector2( 13, 8 )
 
-[node name="Mug" type="RigidBody2D"]
+[node name="Fan" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -33,19 +34,19 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 
-[node name="MugShape0" type="CollisionShape2D" parent="." index="0"]
+[node name="FanShape0" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( -8, 0 )
+position = Vector2( 0, -8 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MugShape1" type="CollisionShape2D" parent="." index="1"]
+[node name="FanShape1" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 23, 0 )
+position = Vector2( -2, 24 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MugTexture" type="TextureRect" parent="." index="2"]
+[node name="FanTexture" type="TextureRect" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
