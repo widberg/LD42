@@ -3,3 +3,6 @@ exports/*
 !exports/PressKit/
 !exports/buildnumber.txt
 !exports/push.bat
+
+#imports
+.import
